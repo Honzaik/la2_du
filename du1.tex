@@ -1,0 +1,38 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst} %indentace prvního odstavce
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{}
+.
+
+\section{}
+.
+
+\section{}
+\subsection{}
+Z definice násobení matic a vlastností sum:
+\begin{gather*}
+tr(AA^T) = \sum_{i=1}^{m}(\sum_{j=1}^{n} a_{i,j} \cdot a_{i,j}) = \sum_{j=1}^{n}(\sum_{i=1}^{m} a_{i,j} \cdot a_{i,j}) = tr(A^TA) \\
+\implies \\
+\sum_{j=1}^{n}(\sum_{i=1}^{m} a_{i,j} \cdot a_{i,j}) = \sum_{j=1}^{n}\sum_{i=1}^{m} a_{i,j}^2 = {\Vert A \Vert}_F^2
+\end{gather*}
+kde $i$ je index řádku ve výsledné matici a v závorce je prvek na místě $i,i$ ve výsledné matici.
+\subsection{}
+Obdobně jako 3.1
+\[ B \in \mathbb{R}^{n \times m}, tr(AB)= \sum_{i=1}^{m}(\sum_{j=1}^{n} a_{i,j} \cdot b_{i,j}) = \sum_{i=1}^{m}(\sum_{j=1}^{n} b_{i,j} \cdot a_{i,j}) = \sum_{j=1}^{n}(\sum_{i=1}^{m} b_{i,j} \cdot a_{i,j}) = tr(BA)\]
+
+\subsection{}
+Dokážeme rovnosti 2. mocnin, což je ekvivalentní, jelikož norma je vždy kladná.
+\begin{gather*}
+\Vert UAV^T \Vert^2 \stackrel{\text{3.1}}{=} tr(UAV^{T}VA^{T}U^{T}) \stackrel{\text{V má ortonormální posl. sloupců}}{=} \\
+tr(UAA^{T}U^{T}) \stackrel{\text{3.1}}{=} tr(A^{T}U^{T}UA) \stackrel{\text{U má ortonormální posl. sloupců}}{=} tr(A^TA) = \\
+\Vert A \Vert_{F}^2
+\end{gather*}
+\end{document}
