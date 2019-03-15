@@ -70,7 +70,15 @@ C \preceq D \iff \forall (x_1,\dots, x_n)^T \in \mathbb{R}^n: x^T(D-C)x \geq 0 \
 $x$ je libovolný vektor, tedy můžeme vzít $x = e_i \ \forall i \in \{1,\dots,n\}$ a vidíme, že musí platit $\forall i \in \{1,\dots,n\}: d_i-c_i \geq 0 \iff d_i \geq c_i$. Naopak pokud je tato podmínka splněna tak rovnost bude vždy nezáporná, jelikož jsou tam druhé mocniny násobnené nezáporným číslem. Tedy $C \preceq D \iff \forall i \in \{1,\dots,n\}: d_i \geq c_i$
 
 \subsection{}
+Matice $U,V$ jsou symetrické, tedy nám udávají symetrické bilineární formy. Tvrzení 11.34 nám říká, protože je $U$ pozitivně definitní, že existuje matice $Q$ ortogonální tž.:
 \begin{gather*}
-\forall x \in \mathbb{R}^n: x^TUx 
+c_i, d_i \in \mathbb{R}^+_0, \ C=diag(c_1,\dots, c_n), \ D = diag(d_1,\dots, d_n) : U=QCQ^T \land V = QDQ^T\\
+U \preceq V \iff \forall x \in \mathbb{R}^n: x^T(V-U)x \geq 0 \iff x^TVx \geq x^TUx \iff\\
+x^T(QDQ^T)x \geq x^T(QCQ^T)x\\
+Q \text{ je bijekce tedy označíme-li } y \coloneqq Q^Tx \implies\\
+\forall y \in \mathbb{R}^n: y^TDy \geq y^TCy \text{ tedy speciálně pro } y=e_i \ \forall i \in \{1, \dots, n\} \implies\\
+\forall i \in \{1, \dots, n\}: d_i \geq c_i 
 \end{gather*}
+
+Z 1.3 víme, že $\Vert U \Vert_F = \Vert QCQ^T \Vert_F = \Vert C \Vert_F$ a $\Vert V \Vert_F = \Vert QDQ^T \Vert_F = \Vert D \Vert_F$. Díky čemu plyne $\Vert D \Vert_F \geq \Vert C \Vert_F \implies \Vert V \Vert_F \geq \Vert U \Vert_F$.
 \end{document}
