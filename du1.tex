@@ -35,4 +35,42 @@ Dokážeme rovnosti 2. mocnin, což je ekvivalentní, jelikož norma je vždy kl
 tr(UAA^{T}U^{T}) \stackrel{\text{3.1}}{=} tr(A^{T}U^{T}UA) \stackrel{\text{U má ortonormální posl. sloupců}}{=} tr(A^TA) = \\
 \Vert A \Vert_{F}^2
 \end{gather*}
+
+\section{}
+\subsection{}
+reflexivita:
+\begin{gather*}
+U \preceq U \iff \forall x \in \mathbb{R}^n: x^T(U - U)x \geq 0 \implies x^T\mathit{0}x=0  \; \forall x \in \mathbb{R}^n
+\end{gather*}
+
+tranzitivita:
+\begin{gather*}
+U,V,W \in \mathbb{R}^{n \times n}: U \preceq V \land V \preceq W \iff \forall x \in \mathbb{R}^n: x^T(V-U)x \geq 0 \land x^T(W-V)^x \geq 0\\
+x^T(W-U)x = x^T(W-V+V-U)x \stackrel{\text{vlastnosti mat. nás.}}{=}\\
+x^T(W-V)x + x^T(V-U)x \stackrel{\text{1. řádek}}{\geq} 0\ \forall x \in \mathbb{R}^n \implies U \preceq W
+\end{gather*}
+
+slabá antisymetrie:
+\begin{gather*}
+U,V \in \mathbb{R}^{n \times n}: U \preceq V \land V \preceq U \iff V-U \ \text{poz. semidef.} \land U-V \ \text{poz. semidef.} 
+\end{gather*}
+Víme, že pro pozitivně semidefinitní matice platí, že jsou ortogonálně diagonalizovatelné a jejich vlastní čísla jsou nezáporná. Označme $A \coloneqq U - V$
+Nechť $\lambda \in \mathbb{R}$ je vlastní číslo $A$ a $v \in \mathbb{R}^n$ jemu příslušný vlastní vektor. Platí:
+\begin{gather*}
+Av=\lambda v \iff -Av = - \lambda v.
+\end{gather*}
+Víme že $\lambda \geq 0$ díky tomu, že je to vlastní číslo $A$, což je poz. semidef. matice. Ale $-A = V-U$, což je také semidefitní matice, má evidentně $-\lambda$ jako své vlastní číslo. Takže $0 \geq \lambda \geq 0 \implies \lambda = 0$. Tedy libovolné vlastní číslo matice $A$ je 0. Z diagonalizace víme, že $A = BDB^T$, kde $D$ je diagonální (B ortogonální) a na diagonále jsou všechna vlastní čísla $A$. Tudíž $D=0 \implies A=0 \iff U = V$.
+
+\subsection{}
+\begin{gather*}
+C = diag(c_1,\dots, c_n),\ D = diag(d_1,\dots, d_n),\ D-C=diag(d_1-c_1,\dots, d_n-c_n)\\
+C \preceq D \iff \forall (x_1,\dots, x_n)^T \in \mathbb{R}^n: x^T(D-C)x \geq 0 \iff \\
+\forall (x_1,\dots, x_n)^T \in \mathbb{R}^n: x_1^2 \cdot (d_1-c_1) + \dots + x_n^2 \cdot (d_n-c_n) \geq 0
+\end{gather*}
+$x$ je libovolný vektor, tedy můžeme vzít $x = e_i \ \forall i \in \{1,\dots,n\}$ a vidíme, že musí platit $\forall i \in \{1,\dots,n\}: d_i-c_i \geq 0 \iff d_i \geq c_i$. Naopak pokud je tato podmínka splněna tak rovnost bude vždy nezáporná, jelikož jsou tam druhé mocniny násobnené nezáporným číslem. Tedy $C \preceq D \iff \forall i \in \{1,\dots,n\}: d_i \geq c_i$
+
+\subsection{}
+\begin{gather*}
+\forall x \in \mathbb{R}^n: x^TUx 
+\end{gather*}
 \end{document}
