@@ -13,7 +13,17 @@
 .
 
 \section{}
-.
+Označme si vektor skóre zpráv písmenem $s \in \mathbb{R}^{300}$, pro každou zprávu $i$ její vektor četnosti slov písmenem $x_i \in \mathbb{R}^{250}$. Z dat vídíme, že máme celkem 300 zpráv a k nim jejich skóre. Dále vidíme že hledaný vektor $a$ má 250 složek, tedy $a \in \mathbb{R}^{250}$. Nakonec označme $e_i$ vektor šumu pro dané skóre. Ze zadání je zřejmé, že $e_i$ pochází ze stejného pravděpodobnostního rozdělení. Rovnice tedy vypadají:
+\begin{gather*}
+s_i = a^T \cdot x_i + b + e_i
+\end{gather*}
+
+Chceme nejdříve odhadnout $a$, takže se chceme zbavit neznámé $b$. To provedeme jednoduše například tak, že si pevně zvolíme dvojici $s_i, x_i$ a od té odečteme ostatní rovnice. Zvolíme-li $i=1$, tak máme nově rovnice:
+\begin{gather*}
+\forall i \in \{2,\dots, 300\}: s_1-s_i = a^T \cdot (x_1-x_i) + e'_i
+\end{gather*}
+Kde $e'_i = e_1-e_i$ je z vlastností součtu normálních rozdělení z rozdělené se střední hodnotou 0 a rozptylem 0.2. Máme tedy soustavu rovnic:
+
 
 \section{}
 \subsection{}
