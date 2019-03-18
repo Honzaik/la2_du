@@ -10,21 +10,82 @@
 \begin{document}
 
 \section{}
-.
+neřešil jsem
 
 \section{}
 Označme si vektor skóre zpráv písmenem $s \in \mathbb{R}^{300}$, pro každou zprávu $i$ její vektor četnosti slov písmenem $x_i \in \mathbb{R}^{250}$. Z dat vídíme, že máme celkem 300 zpráv a k nim jejich skóre. Dále vidíme že hledaný vektor $a$ má 250 složek, tedy $a \in \mathbb{R}^{250}$. Nakonec označme $e_i$ vektor šumu pro dané skóre. Ze zadání je zřejmé, že $e_i$ pochází ze stejného pravděpodobnostního rozdělení. Rovnice tedy vypadají:
-\begin{gather*}
+\begin{gather}
+\label{eq:1}
 s_i = a^T \cdot x_i + b + e_i
-\end{gather*}
+\end{gather}
 
 Chceme nejdříve odhadnout $a$, takže se chceme zbavit neznámé $b$. To provedeme jednoduše například tak, že si pevně zvolíme dvojici $s_i, x_i$ a od té odečteme ostatní rovnice. Zvolíme-li $i=1$, tak máme nově rovnice:
 \begin{gather*}
 \forall i \in \{2,\dots, 300\}: s_1-s_i = a^T \cdot (x_1-x_i) + e'_i
 \end{gather*}
-Kde $e'_i = e_1-e_i$ je z vlastností součtu normálních rozdělení z rozdělené se střední hodnotou 0 a rozptylem 0.2. Máme tedy soustavu rovnic:
+Kde $e'_i = e_1-e_i$ je z vlastností součtu normálních rozdělení z rozdělené se střední hodnotou 0 a rozptylem 0.2. Soustavu si můžeme napsat následovně:
+\begin{gather*}
+s_1 - s_2 = (x_1-x_2)^T \cdot a + e'_1\\
+\vdots\\
+s_1 - s_{300} = (x_1-x_{300})^T \cdot a + e'_{299}\\
+\implies\\
+\begin{pmatrix}
+s_1-s_2 \\
+\vdots \\
+s_1-s_{300} 
+\end{pmatrix} = 
+\begin{pmatrix}
+(x_1-x_2)^T \\
+\vdots \\
+(x_1-x_{300})^T 
+\end{pmatrix} \cdot
+\begin{pmatrix}
+a_1 \\
+\vdots \\
+a_{250} 
+\end{pmatrix} + 
+\begin{pmatrix}
+e'_1 \\
+\vdots \\
+e'_{299} 
+\end{pmatrix}
+\end{gather*} 
+Máme tedy klasickou rovnici pro problém nejměnších čtverců: $y=A\cdot x+ e$. Stačí tedy spočítat pseudoinverz matice $A$ (matice kde jsou řádky rozdíly vektorů $x$) a vynásobit ho s vektorem $s$. Jelikož chyby $e'_i$ jsou všechny ze stejného pravděpodobnostního rozdělení, tak víme, že toto řešení bude nejlepší možné. Nezáleží tedy na velikosti rozptylu daného rozdělení.
 
+Dostaneme tedy odhad vektoru $a$. Dokážeme z každé původní rovnice (1) dostat odhad $b-e_i \ \forall i \in \{1,\dots, 300\}$. Nezbývá tedy nic jiného než spočítat průměr těchto hodnot a dostaneme odhad $b$.
 
+Protože všechny $e_i$ pocházejí ze stejného normálního rozdělení se střední hodnotou 0, předpokládá se tedy, že se šum v průměru sám od sebe odečte, jelikož jeho střední hodnota je 0.
+
+Výsledné odhady jsou:
+\begin{gather*}
+b= 0.65705\\
+a=(-0.469225, 0.0449372, -0.619684, -0.16555, 0.667982, -1.05396,\\
+0.535969, 0.464577, -0.304336, -0.744404, -0.534875, -0.790616,\\
+\dots\\
+0.625111, -10.9927, 3.74909, -1.61924, -1.8207, 0.052431, -0.870726,\\
+-0.342373, -2.66895, -0.791671, -0.158633, -0.455493)^T
+\end{gather*}
+
+Email, který by měl projít spam filterem je například:
+"\textit{Hi, my prey.
+This is my last warning.
+I write you since I embed a trojan on the web site with porn which you have visited.
+My trojan captured all your private data and switched on your camera which recorded the act of your solitary sex. Just after that the trojan saved your contact list.
+I will erase the compromising video records and information if you send me 1000  EURO in bitcoin.
+This is address for payment - 1taeJZbDZnhrk46nmDaG3GkQBdEQf9s49
+(If you don't know what bitcoin / write to buy bitcoin in Google)
+I give you 30 hours after you open my message for making the payment.
+As soon as you read the message I'll see it right away.
+It is not necessary to tell me that you have sent money to me. This address is connected to you, my system will erased automatically after transfer confirmation.
+If you need 48h just Open the calculator on your desktop and press +++
+If you don't pay, I'll send dirt to all your contacts.
+Let me remind you-I see what you're doing!
+You can visit the pulicc office but anybody can't help you.
+If you try to deceive me , I'll know it immediately!
+I don't live in your country. So anyone can not track my location even for 18 months.
+bye. Don't forget about the shame and to ignore, Your life can be ruined.}"
+
+Její skóre mi vyšlo $\approx 0.875946$.
 \section{}
 \subsection{}
 Z definice násobení matic a vlastností sum:

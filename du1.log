@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.11)  17 MAR 2019 19:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.11)  18 MAR 2019 17:32
 entering extended mode
 **./du1.tex
 (du1.tex
@@ -242,8 +242,10 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 16.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (44.65436pt too wide) detected at line 38
+) [1
+
+{C:/Users/honza/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Overfull \hbox (44.65436pt too wide) detected at line 100
 \OML/cmm/m/it/12 B \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 R[]\OML/cmm/m/it/12 ; tr\OT
 1/cmr/m/n/12 (\OML/cmm/m/it/12 AB\OT1/cmr/m/n/12 ) = []([] \OML/cmm/m/it/12 a[]
  \OMS/cmsy/m/n/12  \OML/cmm/m/it/12 b[]\OT1/cmr/m/n/12 ) = []([] \OML/cmm/m/it
@@ -252,50 +254,48 @@ mm/m/it/12 b[] \OMS/cmsy/m/n/12  \OML/cmm/m/it/12 a[]\OT1/cmr/m/n/12 ) = \OML/
 cmm/m/it/12 tr\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 BA\OT1/cmr/m/n/12 )
  []
 
-[1
 
-{C:/Users/honza/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (57.33331pt too wide) detected at line 60
+Overfull \hbox (57.33331pt too wide) detected at line 122
+[]
+ []
+
+[3]
+Overfull \hbox (25.19386pt too wide) detected at line 127
 []
  []
 
 
-Overfull \hbox (25.19386pt too wide) detected at line 65
-[]
- []
-
-[2]
-Overfull \hbox (18.14723pt too wide) detected at line 78
+Overfull \hbox (18.14723pt too wide) detected at line 140
 []
  []
 
 
-Overfull \hbox (35.11565pt too wide) detected at line 90
+Overfull \hbox (35.11565pt too wide) detected at line 152
 []
  []
 
-[3] (du1.aux) ) 
+[4] [5] (du1.aux) ) 
 Here is how much of TeX's memory you used:
- 2905 strings out of 492970
- 40599 string characters out of 3135854
- 112323 words of memory out of 3000000
- 6736 multiletter control sequences out of 15000+200000
+ 2906 strings out of 492970
+ 40605 string characters out of 3135854
+ 115331 words of memory out of 3000000
+ 6737 multiletter control sequences out of 15000+200000
  10544 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,25p,566b,141s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
-12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb>
-Output written on du1.pdf (3 pages, 108272 bytes).
+ 41i,15n,25p,566b,180s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb>
+Output written on du1.pdf (5 pages, 128692 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
+ 58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
