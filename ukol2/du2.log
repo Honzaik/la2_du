@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.2.18)  12 APR 2019 16:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.2.18)  12 APR 2019 17:53
 entering extended mode
 **./du2.tex
 (du2.tex
@@ -296,28 +296,28 @@ Package pdftex.def Info: graf_2_1.pdf  used on input line 89.
 
 pdfTeX warning: pdflatex.EXE (file ./graf_2_1.pdf): PDF inclusion: multiple pdf
 s with page group included in a single page
->] [4] (du2.aux) ) 
+>] [4] [5] (du2.aux) ) 
 Here is how much of TeX's memory you used:
- 3567 strings out of 492946
- 49419 string characters out of 3135521
+ 3569 strings out of 492946
+ 49452 string characters out of 3135521
  135570 words of memory out of 3000000
- 7400 multiletter control sequences out of 15000+200000
- 9545 words of font info for 36 fonts, out of 3000000 for 9000
+ 7402 multiletter control sequences out of 15000+200000
+ 10150 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,25p,953b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
-<B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pf
-b><B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><B:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><B:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><B:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><B:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr8.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmti12.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sym
-bols/msbm10.pfb>
-Output written on du2.pdf (4 pages, 153205 bytes).
+<B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><B
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><B:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><B:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><B:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr8.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmti12.pfb><B:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/symbols/msbm10.pfb>
+Output written on du2.pdf (5 pages, 158952 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 84 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

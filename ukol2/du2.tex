@@ -97,4 +97,24 @@ Vidíme že celková chyba stále klesá, jelikož čím dál více přetrénov�
 
 \textit{Nejznámějším dohledatelným případem této „nedostatek toaletního papíru kvůli politické situaci“ krize byla tzv. Velká toaletní krize v Pražské kavárně na konci ledna 2018. Na konci ledna 2018 se konalo druhé kolo volby prezidenta České republiky. Český lid vybíral mezi Milošem Zemanem a Jiřím Drahošem. Je známo, že Pražská kavárna a její pravidelní zákazníci, nemají v oblibě Miloše Zemana. Miloš Zeman také několikrát dal najevo, prostřednictvím svého mluvčího, který mu je věrnější, než byl pes Hachikō svému páníčkovi, že lidi, co navštěvují Pražskou kavárnu (tzv. „lepšolidi“), také nemá rád. Když byl tedy Miloš Zeman zvolen prezidentem, tak za pár minut nebyla v Pražské kavárně jediná role toaletního papíru (popravdě zbyla jedna role jednovrstvého toaletního papíru, ale ten samozřejmě nikdo nechce používat).}
 
+\section{}
+1,8,9,10\\
+11,12\\
+4,6\\
+2,7\\
+?3x5x13?
+13: Im A kolm Im B
+5: Ker A < Im A
+8,3???
+
+\section{}
+\subsection{}
+Označme $B \coloneqq (A^T A+ \mu I)$. Víme, že matice $B$ je invertibilní $\iff$ $Ker(B)=\{\vec{0}\}$. Mějme tedy $z \in Ker(B)$. Takže $z^T B z = z^T(Bz)= z^T(\vec{0})=0$. Dosadíme-li tedy tak máme
+\begin{gather*}
+0=z^T(A^T A+ \mu I)z=z^T(A^T A)z + z^T(\mu I)z = z^T(A^T A)z + \mu (z^T I z) =\\
+z^T(A^T A)z + \mu (z^T \cdot z)=z^T(A^T A)z + \mu||z||^2=0
+\end{gather*}
+
+Víme, že $A^T A$ je pozitivně definitní matice, takže $\forall z \in \mathbb{R}^n \land z \neq \vec{0}: z^T(A^T A)z > 0$. Tedy pokud $z \neq \vec{0}$ tak zřejmě $z^T(A^T A)z >0 \land  \mu||z||^2 > 0$, což je spor s tím, že $z \in Ker(B)$. Takže jediná možnost je $z=\vec{0}$, tedy $Ker(B)=\{\vec{0}\} \implies B$ je invertiblní.
+
 \end{document}
