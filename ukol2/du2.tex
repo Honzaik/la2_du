@@ -48,5 +48,48 @@ Zde je zobrazen vývoj pro $\mu$ od 0.1 do 5 (kroky po 0.1). Červený graf zna�
 \includegraphics[width=0.8\textwidth]{graf.pdf}
 \end{figure}
 
+\section{}
+Označme $y(n)$ popularitu politiky v $n$-tém týdnu a $x(n)$ popularitu toaletního papíru. Hledáme model typu Moving Average, který z dat o popularitě toaletního papíru předpoví popularitu politiky. Pro dané $m \in \mathbb{N}$ hledáme váhy $w_1,\dots, w_m \in \mathbb{R}$ tž. platí $y(n)=\sum^{m}_{i=1} w_i \cdot x(n-i)$. Trénovacích dat (týdnů) máme 47. Máme tedy soustavu rovnic:
+\[
+\begin{pmatrix}
+y(m+1)\\
+y(m+2)\\
+\vdots\\
+y(47)
+\end{pmatrix}
+= 
+\begin{pmatrix}
+x(m) & x(m-1) & \dots & x(1)\\
+x(m+1) & x(m) & \dots & x(2)\\
+\vdots & \ddots & \ddots & \vdots\\
+x(46) & x(45) & \dots & x(47-m)
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+w_1 \\
+w_2 \\
+\vdots\\
+w_m
+\end{pmatrix}
+\]
 
+Pomocí metody nejmenších čtverců spočteme $w_1,\dots,w_m$ pro dané $m$. Potřebujeme vybrat ideální $m$, aby tyto parametry nebyly přetrénované ale také dobře předpovídaly. 
+
+Chybu budeme měřit $e_{all} = ||y - \hat{y}||$, kde \\$y = (y(m+1), \dots, y(47), y(48),\dots,y(52))$ kde $y(48),\dots,y(52)$ jsou již testovací data a $\hat{y} = (\hat{y}(m+1),\dots,\hat{y}(52))$ kde $\hat{y}(k)=\sum^{m}_{i=1} w_i \cdot x(k-i)$ neboli data spočítaná z našeho modelu. Dále si změříme chybu $e_{test}=||y_{test}-\hat{y}_{test}||$, kde $y_{test}$ a $\hat{y}_{test}$ jsou jako $y,\hat{y}$ ale pouze s testovacími daty. Máme tedy celkovou chybu modelu a chybu modelu na testovacích datech. 
+
+Zde je graf pro $e_{all}$ (modrá) a $e_{test}$ (červená) pro $m \in \{2,\dots,21\}$ (pokud $m>21$ tak jsou data v podstatě nic neříkající):
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{graf_2.pdf}
+\end{figure}
+
+Vidíme že celková chyba stále klesá, jelikož čím dál více přetrénováváme váhy. Vidíme, že model nejlépe funguje pro testovací data pro $m=2$, tedy pouze závilost na 2 předchozích dnech. Zvolme tedy pouze 2 váhy $w_1 = 1.47928, w_2=1.80795$. Zde je graf $y$ (modrá) a $\hat{y}$  (předpověď) pro tyto váhy:
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{graf_2_1.pdf}
+\end{figure}
+
+\textit{
+V dnešní rubrice
+}
 \end{document}
