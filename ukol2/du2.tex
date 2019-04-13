@@ -98,15 +98,18 @@ Vidíme že celková chyba stále klesá, jelikož čím dál více přetrénov�
 \textit{Nejznámějším dohledatelným případem této „nedostatek toaletního papíru kvůli politické situaci“ krize byla tzv. Velká toaletní krize v Pražské kavárně na konci ledna 2018. Na konci ledna 2018 se konalo druhé kolo volby prezidenta České republiky. Český lid vybíral mezi Milošem Zemanem a Jiřím Drahošem. Je známo, že Pražská kavárna a její pravidelní zákazníci, nemají v oblibě Miloše Zemana. Miloš Zeman také několikrát dal najevo, prostřednictvím svého mluvčího, který mu je věrnější, než byl pes Hachikō svému páníčkovi, že lidi, co navštěvují Pražskou kavárnu (tzv. „lepšolidi“), také nemá rád. Když byl tedy Miloš Zeman zvolen prezidentem, tak za pár minut nebyla v Pražské kavárně jediná role toaletního papíru (popravdě zbyla jedna role jednovrstvého toaletního papíru, ale ten samozřejmě nikdo nechce používat).}
 
 \section{}
-1,8,9,10\\
+1,3,9,10\\
 11,12\\
 4,6\\
 2,7\\
-?3x5x13?
-13: Im A kolm Im B
-5: Ker A < Im A
-8,3???
+5\\
+8,13??
 
+"$4 \iff 6$"
+
+"$\implies$": Chceme tedy dokázat, že $\forall x \in \mathbb{R}^n: ABx=0$ Nechť $x \in \mathbb{R}^n$. Poté zřejmě $Bx \in Im(B) \subseteq Ker(A) \implies A(Bx)=0 \iff ABx=0$.
+
+"$\impliedby$" Víme že $\forall x \in \mathbb{R}^n: ABx=0$, ale $\{Bx : x \in \mathbb{R}^n\}=Im(B)$. Tedy jistě pro $y \in Im(B) \ \exists x \in \mathbb{R}^n: y=Bx$ a máme tedy $A(Bx)=Ay=0 \implies y \in Ker(A)$.
 \section{}
 \subsection{}
 Označme $B \coloneqq (A^T A+ \mu I)$. Víme, že matice $B$ je invertibilní $\iff$ $Ker(B)=\{\vec{0}\}$. Mějme tedy $z \in Ker(B)$. Takže $z^T B z = z^T(Bz)= z^T(\vec{0})=0$. Dosadíme-li tedy tak máme
@@ -117,4 +120,23 @@ z^T(A^T A)z + \mu (z^T \cdot z)=z^T(A^T A)z + \mu||z||^2=0
 
 Víme, že $A^T A$ je pozitivně definitní matice, takže $\forall z \in \mathbb{R}^n \land z \neq \vec{0}: z^T(A^T A)z > 0$. Tedy pokud $z \neq \vec{0}$ tak zřejmě $z^T(A^T A)z >0 \land  \mu||z||^2 > 0$, což je spor s tím, že $z \in Ker(B)$. Takže jediná možnost je $z=\vec{0}$, tedy $Ker(B)=\{\vec{0}\} \implies B$ je invertiblní.
 
+\subsection{}
+???
+
+\subsection{}
+???
+
+\subsection{}
+Z přednášky víme, že pokud chceme minimalizovat $||Ax-y||^2$ a zároveň $||Bx-c||^2$ kde $A,B$ jsou dané matice a $y,c$ vektory. Hledáme řešení $x$ tž. minimalizuje $||Ax-y||^2+\mu||Bx-c||^2$, kde $\mu$ je parametr, kterým udáváme vztah důležitosti mezi oběma podmínkama. Dále víme, že se tato úloha dá převést na obyčejnou úlohu pro řešení nejmenších čtverců a vzoreček pro optimální řešení je:
+\begin{gather*}
+\hat{x}=(A^TA+\mu B^T B)^{-1} (A^Ty+ \mu B^Tc) \iff\\
+(A^TA+\mu B^T B)\hat{x}= (A^Ty+ \mu B^Tc) 
+\end{gather*}
+
+Vezmeme-li $B=I$ a $c=\vec{0}$ máme $(A^TA+\mu I)\hat{x}= A^Ty$ neboli jeden z parametrů hledaného řešení je malá norma $\hat{x}$ (jak moc malou určuje $\mu$).
+
+\subsection{}
+Máme-li $A \in \mathbb{R}^{m \times n}$, $m \ll n$ a $rank(A)=m$, tak $Ax=y$ má řešení. Chceme dostat ale takové $x_{ln}$, že $||x_{ln}||$ je nejmenší možné. Z přednášky víme, že pro takové $x_{ln}$ platí $x_{ln}=A^T(AA^T)^{-1}y $.
+
+Pro obecnou tlustou matici $A$ vždy neexistuje $(AA^T)^{-1}$ ale vždy existuje $(A^T A+ \mu I)^{-1}$. Řešení ve 4 můžeme vyjádřit $\hat{x} = (A^TA+\mu I)^{-1} A^Ty$. Limita ze 3 nám říká, že optimální řešení ze 4. (pro obecně ne full-rank matici) konverguje k řešení s nejmenší normou ($\mu \rightarrow 0^+ \implies \hat{x} \rightarrow x_{ln}$).
 \end{document}
