@@ -1,0 +1,54 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst} %indentace prvního odstavce
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[czech]{babel}
+
+\begin{document}
+
+\section{}
+Definujeme vektor stavu HP pokémonů jako $h(t) = (h_1(t), h_2(t))^T$, kde $h_1(t)$ značí hodnotu HP Pikachu po kole $t$ a $h_2(t)$ hodnotu HP Charmandera po kole $t$. Víme, že $h_1(0)=100$ a $h_2(0)=50$. Ze zadání je zřejmé, že platí:
+\begin{gather*}
+A = \begin{pmatrix}
+0.95 & -0.2\\
+-0.1 & 1.1
+\end{pmatrix}\\
+h(t+1) = A \cdot h(t)
+\end{gather*}
+
+Vidíme, že toto je předpis pro lineární dynamický systém a tedy zřejmě platí $h(t) = A^{t}\cdot h(0)$.
+Matice A je diagonalizovatelná, protože její vlastní vektory tvoří bázi $\mathbb{R}^2$. Platí:
+\begin{gather*}
+R = \begin{pmatrix}
+0.647994 & -0.920202\\
+-0.761646 & -0.391445
+\end{pmatrix},
+D = \begin{pmatrix}
+1.18508 & 0\\
+0 & 0.864922
+\end{pmatrix}\\
+A = R \cdot D \cdot R^{-1}
+\end{gather*}
+
+Matice $R$ je matice přechodu z báze $B$ tvořené vlastnímy vektory $A$ ke kanonické bázi ($K$) a $R^{-1}$ naopak. Z lineární algebry víme, že platí $[h(t)]_B = D^t \cdot [h(0)]_B$, kde $[\cdot]_B$ značí souřadnice vektorů v bázi B. Dále platí $h(t) = [h(t)]_K= R \cdot [h(t)]_B$ a $[h(0)]_B = R^{-1} \cdot [h(0)]_K = h(0)$. Dosadíme-li:
+\begin{gather*}
+h(t) = R \cdot [h(t)]_B = R \cdot D^t \cdot [h(0)]_B =  R \cdot D^t \cdot R^{-1} \cdot h(0) \text{ kde }\\
+\end{gather*}
+Po dosazení a vyčíslený máme explicitní vzorec pro $h(t)$:
+\begin{gather*}
+h(t) = \begin{pmatrix}
+h_1(t)\\
+h_2(t)
+\end{pmatrix}\approx
+\begin{pmatrix}
+104.661 \cdot 0.864922^t - 4.66082 \cdot 1.18508^t\\
+44.5217 \cdot 0.864922^t - 5.47828 \cdot 1.18508^t\\
+\end{pmatrix}
+\end{gather*}
+
+Po 9. kole ($t=9$) má Pikachu HP $h_1(9) \approx 6.864$ a Charmander $h_2(9) \approx 37.317$. V po 10. kole by bylo Pikachu mrtvé s $h_1(10) \approx -0.942$. Potřebujeme utéct po 9. kole.
+\end{document}
