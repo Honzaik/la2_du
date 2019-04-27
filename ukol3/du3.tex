@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{enumitem}
 \usepackage[czech]{babel}
 
 \begin{document}
@@ -51,4 +52,59 @@ h_2(t)
 \end{gather*}
 
 Po 9. kole ($t=9$) má Pikachu HP $h_1(9) \approx 6.864$ a Charmander $h_2(9) \approx 37.317$. V po 10. kole by bylo Pikachu mrtvé s $h_1(10) \approx -0.942$. Potřebujeme utéct po 9. kole.
+
+\section{}
+???
+
+\section{}
+\subsection{}
+$\forall x \in \mathbb{R}^n : x^T A x = x^T B x \iff x^T (A-B) x = 0$. Víme, že $A,B$ jsou symetrické, takže i $(A-B)$ je symetrická matice, tudíž je ortogonálně diagonalizovatelná. Takže existuje $P \in \mathbb{R}^{n \times n}$ ortogonální a $D \in \mathbb{R}^{n \times n}$ diagonální tž. $(A-B) = PDP^T$. $P$ je regulární a tudíž $\forall x \ \exists! y: y=P^Tx$. Tudíž můžeme psát ekvivaletně, že $\forall y \in \mathbb{R}^n: y^T D y = 0$. Pokud za $y$ dosadíme vektory kanonické báze, tak vidíme, že musí platit, že $D = 0$ a tedy i $(A-B) \iff A = B$.
+
+\subsection{}
+$P$ pozitivně definitní $\implies$ $P$ je regulární viz LA. Tedy vždy existuje $P^{-1}, Q^{-1}$.
+\begin{enumerate}[label=(\alph*)]
+\item $P$ regulární tedy opět můžeme přeznačit $y = Px$ a víme, že $y=0 \iff x=0$. $P^{-1}$ je poz. def., protože z definice + dosazení + $P$ symetrická: $\forall y \neq 0: y^T P^{-1} y = x^T P^T P^{-1} P x = x^T P^T x = x^T P x > 0$
+\item Pro pozitivně definitní matici $A$ existuje právě jedna matice $\sqrt{A}$ tž. $A = \sqrt{A}^2$. Protože $A$ je poz. def. je ortogonálně diagonalizovatelná s kladnými čisly na diagonále v příslušné diag. matici. Tedy $A = UDU^T$, položme $\sqrt{A}=U \sqrt{D} U^T \implies \sqrt{A}^2 = (U \sqrt{D} U^T)(U \sqrt{D} U^T) = U \sqrt{D} \sqrt{D} U^T = A$. Z definice je zřejmé, že $\sqrt{A}$ je také pozitivně definitní, protože její vlastní čísla jsou kladná (odmocniny kladných čísel).
+
+Nejprve tvrzení dokážeme pro $Q = I$. Víme, že $\forall x: x^T P x \geq x^T Q x = x^T I x$. Nechť $P = A^2$: $x^T P^{-1} x = x^T A^{-1} A^{-1} x = x^T A^{{-1}^T} A^{-1} x = (A^{-1}x)^T I (A^{-1}x) \stackrel{\text{předpoklad}}{\leq} =  (A^{-1}x)^T P (A^{-1}x)=  (A^{-1}x)^T AA (A^{-1}x)=x^T I x$. Dokázali jsme, že $I \preceq P \implies P^{-1} \preceq I$.
+
+Nechť $X$ pozitivně definitní, pak platí $Q \preceq P \implies XQX \preceq XPX$, protože $X$ je regulární (bijekce). Položíme $y= Xx$ a nerovnost stále platí. Nechť $Q = B^2$, nyní $Q$ obecná pozitivně definitní matice. Máme $Q \preceq P \iff BB \preceq P$, položme $X \coloneqq B^{-1}$, potom máme $I \preceq B^{-1}PB^{-1}$. Z již dokázaného máme $(B^{-1}PB^{-1})^{-1} \preceq I^{-1} \iff \\BP^{-1}B \preceq I$. $X \coloneqq B^{-1} \implies P^{-1} \preceq Q^{-1}$.
+
+\item Toto tvrzení neplatí. Protipříklad:
+\begin{gather*}
+P = \begin{pmatrix}
+1/3 & 1/3\\
+1/3 & 1/3
+\end{pmatrix},
+Q = \begin{pmatrix}
+-1/2 & -1/2\\
+-1/2 & -1/2
+\end{pmatrix}
+\\
+P-Q = \begin{pmatrix}
+5/6 & 5/6\\
+5/6 & 5/6
+\end{pmatrix} \text{ je poz. semidef.}\\
+P^2-Q^2 = \begin{pmatrix}
+-5/18 & -5/18\\
+-5/18 & -5/18
+\end{pmatrix} \text{ zřejmě není poz. semidef.}
+\end{gather*}
+\end{enumerate}
+
+\subsection{}
+$\sum_{i=1}^{n-1} (x_{i+1}-x_{i})^2 = x^2_n + 2x^2_{n-1} + \dots 2x^2_2 + x^2_1 -2(x_nx_{n-1} + x_{n-1}x_{n-2} + \dots x_2x_1)$. Tedy je vidět, že
+\begin{gather*}
+P = \begin{pmatrix}
+1 & 1 & 0 & 0 & 0 & \dots & 0\\
+1 & 2 & 1 & 0 & 0 & \dots & 0\\
+0 & 1 & 2 & 1 & 0 & \dots & 0\\
+\vdots & \ddots & \ddots & \ddots & \ddots & \dots & \vdots\\
+0 & \dots & 0 & 1 & 2 & 1 & 0\\
+0 & \dots & 0 & 0 & 1 & 2 & 1\\
+0 & \dots & 0 & 0 & 0 & 1 & 1\\
+\end{pmatrix}
+\end{gather*}
+
+Je to suma druhých mocnin (nezáporných čísel), takže aby byla rovna 0 $ \iff x^TPx=0$, tak musí platit, že $x_1 = x_2 = \dots = x_n$. Například $x = (1, \dots, 1)^T$ platí $x^TPx = 0$. Takže zřejmě $P$ není pozitivně definitní, ale je pozitivně semidefinitní, protože to je suma druhých mocnin.
 \end{document}
