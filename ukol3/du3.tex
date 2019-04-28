@@ -107,4 +107,111 @@ P = \begin{pmatrix}
 \end{gather*}
 
 Je to suma druhých mocnin (nezáporných čísel), takže aby byla rovna 0 $ \iff x^TPx=0$, tak musí platit, že $x_1 = x_2 = \dots = x_n$. Například $x = (1, \dots, 1)^T$ platí $x^TPx = 0$. Takže zřejmě $P$ není pozitivně definitní, ale je pozitivně semidefinitní, protože to je suma druhých mocnin.
+
+\section{}
+\subsection{}
+Protipříklad:
+\begin{gather*}
+A = \begin{pmatrix}
+2 & 0\\
+0 & 1\\
+\end{pmatrix},
+B = \begin{pmatrix}
+1 & 0\\
+0 & 2\\
+\end{pmatrix},
+\implies A-B = \begin{pmatrix}
+1 & 0\\
+0 & -1\\
+\end{pmatrix}
+\end{gather*}
+Zřejmě $2 = \lambda_1(A)\geq \lambda_1(B) = 2 \land 1 = \lambda_2(A)\geq \lambda_2(B) = 1$, ale $A-B$ má vlastní čísla $1,-1$, tedy neni pozitivně semidefinitní.
+
+\subsection{}
+Protipříklad:
+\begin{gather*}
+A = \begin{pmatrix}
+-1 & 0\\
+0 & 0
+\end{pmatrix},
+B = \begin{pmatrix}
+0 & 0\\
+0 & -1
+\end{pmatrix} \implies
+A-B = \begin{pmatrix}
+-1 & 0\\
+0 & 1
+\end{pmatrix}
+\end{gather*}
+
+Protože pro $x = (a, b)^T, a, b \in \mathbb{R}: x^T A x = -a^2 \implies x^T A x \leq 1 \iff -a^2 \leq 1$ což platí vždy, tedy $\{x | x^T A x \leq 1\} = \mathbb{R}^2$. Stejně tak pro množinu příslušnou matici $B$. $\mathbb{R}^2 \subseteq \mathbb{R}^2$ ale $A-B$ zřejmě není pozitivně semidefinitní.
+
+\subsection{}
+Protipříklad:
+\begin{gather*}
+A = \begin{pmatrix}
+-1 & 0\\
+0 & 1
+\end{pmatrix},
+B = \begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix} \implies
+B-A = \begin{pmatrix}
+2 & 0\\
+0 & 0
+\end{pmatrix}
+\end{gather*}
+
+$B-A$ je pozitivně semidefinitní (vlastní čísla $0,2$). Nechť $x = (a, b)^T, a, b \in \mathbb{R}$, pak $\{x | x^T A x \leq 1\} \iff -a^2+b^2 \leq 1 \iff b^2 \leq 1+a^2$ což neomezená množina, ale $\{x | x^T B x \leq 1\} \iff a^2+b^2 \leq 1$ je kružince s poloměrem 1 a tedy omezená. Takže nemůže platit inkluze.
+
+\subsection{}
+Z LA víme, že součin ortogonálních matic je opět ortogonální matice. $A, B$ jsou symetrické se stejnými vlastnímí čísly, tedy $\exists \ U,V$ ortogonální a $D$ diagonální tž. $A = U D U^T, B = V D V^T$. Poté
+\begin{gather*}
+A = U D U^T = U V^T (V D V^T) V U^T = U V^T B V U ^T
+\end{gather*}
+
+Položme $Q \coloneqq V U ^T$ a víme, že je ortogonální.
+
+\subsection{}
+Ortogonální matice je regulární. Takže předpoklad říká, že $A, B$ jsou podobné matice. Z LA víme, že podobné matice mají stejný charakteristický polynom, takže i vlastní čísla.
+
+\subsection{}
+$e^{At} \preceq e^{At} \iff e^{At}-e^{At} = 0$. Nulová matice je pozitivně semidefinitní.
+
+\subsection{}
+\begin{gather*}
+A = \begin{pmatrix}
+2 & 0\\
+0 & 2
+\end{pmatrix},
+B = \begin{pmatrix}
+1 & 1\\
+1 & 1
+\end{pmatrix} \implies
+A-B = \begin{pmatrix}
+1 & -1\\
+-1 & 1
+\end{pmatrix}
+\end{gather*}
+
+Vlastní čísla $A-B$ jsou $0, 2$. Takže je pozitivně semidefinitní, ale zřejmě neplatí závěr.
+
+\subsection{}
+\begin{gather*}
+A = \begin{pmatrix}
+0 & 2\\
+2 & 0
+\end{pmatrix},
+B = \begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix} \implies
+A-B = \begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+\end{gather*}
+
+Platí předpoklad, ale vlastní čísla $A-B$ jsou $-1,+1$, takže je indefinitní.
 \end{document}
