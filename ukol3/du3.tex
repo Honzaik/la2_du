@@ -1,5 +1,5 @@
 \documentclass[12pt, a4paper]{article}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage{indentfirst} %indentace prvního odstavce
 \usepackage{mathtools}
 \usepackage{amsfonts}
@@ -7,6 +7,8 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{float}
 \usepackage[czech]{babel}
 
 \begin{document}
@@ -54,8 +56,56 @@ h_2(t)
 Po 9. kole ($t=9$) má Pikachu HP $h_1(9) \approx 6.864$ a Charmander $h_2(9) \approx 37.317$. V po 10. kole by bylo Pikachu mrtvé s $h_1(10) \approx -0.942$. Potřebujeme utéct po 9. kole.
 
 \section{}
-???
+Jestliže máme přístup k mapě a máme možnost kreslit kružnice dané délky, tak je úkol jednoduchý. Jednoduše nalezeme průnik 3 kružnic viz obrázek:
+\begin{figure}[H]
+  \centering
+  \subfloat[]{\includegraphics[width=0.4\textwidth]{obr_1.png}\label{fig:f1}}
+  \hfill
+  \subfloat[]{\includegraphics[width=0.4\textwidth]{obr_2.png}\label{fig:f2}}
+\end{figure}
 
+To odpovídá zhruba místu \uv{Poutní Kostel Jména Panny Marie} (souřadnice 49°05'44.3"N 14°11'15.3"E). Pokud nemáme přístup k těmto technologiím, tak předpokládáme, že máme přístup k danému souřadnicovému systému na mapě.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{obr_3.png}
+\end{figure}
+
+Kaplička v Hradišti má souřadnice $(x_1, y_1) = (0, 0)^T$, v Malovicích $(x_2, y_2) = (1884, 2235)^T$ a v Nestánicích $(x_3, y_3) = (63, 3423)^T$. Hodnoty souřadnic jsou v metrech. Označme neznámé souřadnice místa $m=(x, y)^T$ a naměřené vzdálenosti od příslušných kapliček $d_1 = 2758, d_2 = 2716, d_3=1171$. Předpokládáme, že platí
+\begin{gather*}
+(x-x_1)^2 + (y-y_1)^2 = d_1^2\\
+(x-x_2)^2 + (y-y_2)^2 = d_2^2\\
+(x-x_3)^2 + (y-y_3)^2 = d_3^2
+\end{gather*}
+
+Odečteme-li například druhou a třetí rovnici od první dostaneme 2 lineární rovnice $x_1 = y_1 = 0 $:
+\begin{gather*}
+2x(x_2 - x_1)+2y(y_2 - y_1) = d_1^2 - d_2^2 + x_2^2+y_2^2\\
+2x(x_3 - x_1)+2y(y_3 - y_1) = d_1^2 - d_3^2 + x_3^2+y_3^2
+\end{gather*}
+
+vyjádřeno maticově
+\begin{gather*}
+\begin{pmatrix}
+2(x_2 - x_1) & 2(y_2 - y_1)\\
+2(x_3 - x_1) & 2(y_3 - y_1)\\
+\end{pmatrix} \cdot 
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix} = 
+\begin{pmatrix}
+d_1^2 - d_2^2 + x_2^2+y_2^2\\
+d_1^2 - d_3^2 + x_3^2+y_3^2\\
+\end{pmatrix}
+\end{gather*}
+
+Všechny hodnoty kromě $x,y$ známe, tudíž můžeme danou soustavu vyřešit metodou nejmenších čtverců. Výsledek je $m=(-800.296, 2637.61)$, to jsou souřadnice daného místa v naší souřadné soustavě. Výsledek je nečekaně přesný, na to že souřadnice míst čteme \uv{podle oka} viz obrázky.
+\begin{figure}[H]
+  \centering
+  \subfloat[]{\includegraphics[width=0.4\textwidth]{obr_4.png}\label{fig:f1}}
+  \hfill
+  \subfloat[]{\includegraphics[width=0.4\textwidth]{obr_5.png}\label{fig:f2}}
+\end{figure}
 \section{}
 \subsection{}
 $\forall x \in \mathbb{R}^n : x^T A x = x^T B x \iff x^T (A-B) x = 0$. Víme, že $A,B$ jsou symetrické, takže i $(A-B)$ je symetrická matice, tudíž je ortogonálně diagonalizovatelná. Takže existuje $P \in \mathbb{R}^{n \times n}$ ortogonální a $D \in \mathbb{R}^{n \times n}$ diagonální tž. $(A-B) = PDP^T$. $P$ je regulární a tudíž $\forall x \ \exists! y: y=P^Tx$. Tudíž můžeme psát ekvivaletně, že $\forall y \in \mathbb{R}^n: y^T D y = 0$. Pokud za $y$ dosadíme vektory kanonické báze, tak vidíme, že musí platit, že $D = 0$ a tedy i $(A-B) \iff A = B$.
