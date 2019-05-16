@@ -1,0 +1,64 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{indentfirst} %indentace prvního odstavce
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage[czech]{babel}
+
+\begin{document}
+
+\section{}
+Rozšířme vektor $x(t)$ o jednu složku, která bude zaznamenávat vzdálenost od původní pozice v čase $t$. Vektor $x(t)$ má tedy tvar $x(t)=(odchylka, rychlost, vzdalenost)^T$, kde vzdálenost je v metrech. Kvůli tomu musíme rozšířit matice, aby to dávalo smysl. Získáme tedy rovnici:
+\begin{gather*}
+A = \begin{pmatrix}
+1.1 & -0.5 & 0\\
+0 & 1 & 0\\
+0 & 0.01 & 1
+\end{pmatrix},
+B = \begin{pmatrix}
+-2\\
+0.01\\
+0
+\end{pmatrix}\\
+x(t+1)= Ax(t) + Bu(t)
+\end{gather*}
+
+Matice poslední řádek matice $A$ počítá změnu polohy. Ze zadání víme, že frekvence kroků je 100 za 1s, takže vzdálenost se mění vztahem $1x(t)_3 + \frac{1}{100}x(t)_2$. Rychlost $x(t)_2$ nám říká kolik metrů ujede robot za jednu sekundu, takže za $\frac{1}{100}$s (jeden krok) ujede přesně jednu setinu rychlosti metrů, což přičteme k vzdálenosti $x(t)_3$. Stav $x(0)$ samozřejmě rozšíříme o jednu složku s hodnotou 0 (na začátku je vzdálenost od počátku 0).
+
+Celkem máme tedy 100 kroků (povolena 1s ovládání a frekvence kroků je 100 za sekundu). Chceme tedy zajistit aby $x(100)=(0,0)^T$ a zároveň, aby změny zrychlení ($0 \leq t \leq 99: u(t)-u(t-1)$) byly minimální.
+
+Dosazením do rekurentního vzorce dostaneme vzorec pro výpočet $x(100)$
+\begin{gather*}
+x(100)=A^{100} x(0) + A^{99}Bu(0) + A^{98}Bu(1) + \dots + ABu(98) + Bu(99) 
+\end{gather*}
+
+Chceme $x(100)=(0,0)^T$ a hodnota $A^{100}x(0)$ je konstantní (nezávisí na $u(t)$), takže máme
+\begin{gather*}
+-A^{100} x(0) = + A^{99}Bu(0) + A^{98}Bu(1) + \dots + ABu(98) + Bu(99) 
+\end{gather*}
+
+Označme $C \coloneqq (A^{99}B|A^98B|\dots|AB|B),\ b \coloneqq -A^{100}x(0), u \coloneqq (u(0), \dots, u(99))^T$. Takže máme
+\begin{gather*}
+Cu=b
+\end{gather*}
+
+Potřebujeme ale přetransformovat vektor $u$, aby nám řešení s nejmenší euklidovskou normou (pomocí pseudoinverzu) minimalizovalo naší upravenou normu ($0 \leq t \leq 99: u(t)-u(t-1)$). Označme $d(0)\coloneqq u(0),\ \forall t \in \{1,\dots,99\}: d(t) \coloneqq u(t)-u(t-1)$. Zřejmě platí $u(t)=\sum_{i=0}^t d(t)$. Označíme-li tedy $d \coloneqq (d(0),\dots,d(99))^T$, tak platí
+\begin{gather*}
+T = \begin{pmatrix}
+1 & 0 & 0 & 0 & \dots & 0\\
+1 & 1 & 0 & 0 & \dots & 0\\
+1 & 1 & 1 & 0 & \dots & 0\\
+\vdots & \vdots & \vdots & \ddots &\ddots & \vdots\\
+1 & 1 & 1 & 1 & \dots & 1
+\end{pmatrix}, T \in \mathbb{R}^{100 \times 100} \text{ a platí } u = Td
+\end{gather*}
+
+Nyní pokud dosadíme do původní rovnice, tak máme $(CT)d=b$. Spočítáme řešení s nejmenší normou $d_{opt}$ (minimalizuje rozdíly $u(t)-u(t-1)$) pomocí pseudoinverze neboli $d_{opt} = (CT)^{\dagger}b $, kde $(CT)^{\dagger}$ značí pseudoinverz matice $CT$. Hodnoty $u_{opt}=(u(0)_{opt},\dots,u(99)_{opt})^T$ získáme z vzorce výše, tedy $u_{opt}=Td_{opt} = T(CT)^{\dagger}b$.
+
+\end{document}
